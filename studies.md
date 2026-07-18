@@ -40,12 +40,13 @@ Timebox **1.5–2 hours** across these resources before the lesson. You do not n
 
 **Read (15 min)**
 
-- [Yup README on GitHub](https://github.com/jquense/yup): Read the Introduction and the "Object Schema" section. You do not need to read the full API reference; focus on how `.object().shape()`, `.string()`, `.required()`, and `.min()` work together, and what `abortEarly: false` does.
+- [Yup README on GitHub](https://github.com/jquense/yup): Read the Introduction and the "Object Schema" section. You do not need to read the full API reference; focus on how `.object().shape()`, `.string()`, `.required()`, and `.min()` work together, what `abortEarly: false` does, and how `validate()` differs from `validateAt()`.
 
 **Key ideas:**
 
 - A Yup schema is a plain JavaScript object that describes valid data
 - `.validate(values)` returns a promise that resolves if all rules pass or rejects with a `ValidationError` if any fail
+- `.validateAt(path, values)` checks a single field against the schema, useful for validating one field at a time, for example on blur
 - `abortEarly: false` collects all errors in one pass rather than stopping at the first failure
 - `err.inner` is an array of individual `ValidationError` objects, one per failing field
 
