@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="920" viewBox="0 0 1280 920" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#33475B"/>
+    </marker>
+    <marker id="arrowStart" markerWidth="9" markerHeight="8" refX="0" refY="4" orient="auto">
+      <path d="M8,0 L0,4 L8,8 z" fill="#33475B"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="920" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="60" y="46" font-size="22" font-weight="bold" fill="#111827">Simple CRM Web — Technical Architecture</text>
+  <text x="60" y="70" font-size="13" fill="#6B7280">React 19 + Vite single-page app · Yup form validation · json-server mock REST API · static deployment</text>
+
+  <!-- Legend -->
+  <g font-size="11" fill="#4B5563">
+    <rect x="800" y="38" width="12" height="12" rx="2" fill="#E8F1FB" stroke="#2B6CB0"/>
+    <text x="818" y="48">UI</text>
+    <rect x="862" y="38" width="12" height="12" rx="2" fill="#EBF0FA" stroke="#4C51BF"/>
+    <text x="880" y="48">State</text>
+    <rect x="938" y="38" width="12" height="12" rx="2" fill="#E9F6EC" stroke="#2F855A"/>
+    <text x="956" y="48">Validation</text>
+    <rect x="1040" y="38" width="12" height="12" rx="2" fill="#E3ECF7" stroke="#1F4E79"/>
+    <text x="1058" y="48">API</text>
+    <rect x="1102" y="38" width="12" height="12" rx="2" fill="#FDF1DC" stroke="#B7791F"/>
+    <text x="1120" y="48">Data</text>
+    <rect x="1168" y="38" width="12" height="12" rx="2" fill="#F1F3F5" stroke="#64748B"/>
+    <text x="1186" y="48">Build</text>
+  </g>
+
+  <!-- User -->
+  <rect x="60" y="104" width="180" height="52" rx="8" fill="#F1F3F5" stroke="#4A5568" stroke-width="1.2"/>
+  <text x="150" y="126" font-size="13" font-weight="600" fill="#1F2937" text-anchor="middle">User / Browser</text>
+  <text x="150" y="143" font-size="10.5" fill="#6B7280" text-anchor="middle">navigation · form input</text>
+  <line x1="150" y1="156" x2="150" y2="180" stroke="#33475B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="160" y="172" font-size="10.5" fill="#33475B">navigate · submit</text>
+
+  <!-- React SPA -->
+  <rect x="60" y="180" width="720" height="440" rx="10" fill="#F7FAFD" stroke="#2C5F9E" stroke-width="1.5"/>
+  <text x="84" y="208" font-size="14" font-weight="bold" fill="#1F3A5F">React SPA — static bundle</text>
+  <text x="756" y="208" font-size="10.5" fill="#6B7280" text-anchor="end">React 19 · Vite 8 · react-router 7 · CSS Modules</text>
+
+  <!-- Routing -->
+  <rect x="84" y="222" width="672" height="64" rx="8" fill="#E8F1FB" stroke="#2B6CB0" stroke-width="1"/>
+  <text x="100" y="242" font-size="12" font-weight="bold" fill="#2B6CB0">Routing — react-router 7</text>
+  <text x="100" y="262" font-size="11" fill="#33475B">/  Welcome · /login · /app  protected (RootLayout) · /app/products  lazy-loaded · *  NotFound</text>
+
+  <!-- State -->
+  <rect x="84" y="296" width="672" height="92" rx="8" fill="#EBF0FA" stroke="#4C51BF" stroke-width="1"/>
+  <text x="100" y="314" font-size="12" font-weight="bold" fill="#4C51BF">Client state</text>
+  <rect x="100" y="324" width="212" height="56" rx="6" fill="#FFFFFF" stroke="#4C51BF" stroke-width="0.8"/>
+  <text x="114" y="341" font-size="11.5" font-weight="600" fill="#1F2937">AuthContext</text>
+  <text x="114" y="357" font-size="10.5" fill="#4B5563">session user · login / logout</text>
+  <text x="114" y="372" font-size="10.5" fill="#4B5563">persisted in localStorage</text>
+  <rect x="322" y="324" width="212" height="56" rx="6" fill="#FFFFFF" stroke="#4C51BF" stroke-width="0.8"/>
+  <text x="336" y="341" font-size="11.5" font-weight="600" fill="#1F2937">CustomerContext</text>
+  <text x="336" y="357" font-size="10.5" fill="#4B5563">useReducer + search / status</text>
+  <text x="336" y="372" font-size="10.5" fill="#4B5563">filters customer list</text>
+  <rect x="544" y="324" width="212" height="56" rx="6" fill="#FFFFFF" stroke="#4C51BF" stroke-width="0.8"/>
+  <text x="558" y="341" font-size="11.5" font-weight="600" fill="#1F2937">customerReducer.js</text>
+  <text x="558" y="357" font-size="10.5" fill="#4B5563">FETCH_* · ADD_*</text>
+  <text x="558" y="372" font-size="10.5" fill="#4B5563">UPDATE_* · DELETE_*</text>
+
+  <!-- Pages -->
+  <rect x="84" y="398" width="672" height="54" rx="8" fill="#E8F1FB" stroke="#2B6CB0" stroke-width="1"/>
+  <text x="100" y="418" font-size="12" font-weight="bold" fill="#2B6CB0">Pages</text>
+  <text x="100" y="438" font-size="11" fill="#33475B">Dashboard · Customers (list / new / detail / edit) · Products (code-split) · Login · Welcome · 404</text>
+
+  <!-- Components -->
+  <rect x="84" y="462" width="672" height="54" rx="8" fill="#F1F4F8" stroke="#5A6B7F" stroke-width="1"/>
+  <text x="100" y="481" font-size="12" font-weight="bold" fill="#5A6B7F">Components</text>
+  <text x="100" y="496" font-size="11" fill="#33475B">RootLayout (Sidebar, Header) · CustomerCard · CustomerDetail · AddInteractionForm</text>
+  <text x="100" y="510" font-size="11" fill="#33475B">SearchBar · ProductList · ExpensiveDisplayComponent · Spinner · ProtectedRoute</text>
+
+  <!-- Validation -->
+  <rect x="84" y="526" width="672" height="54" rx="8" fill="#E9F6EC" stroke="#2F855A" stroke-width="1"/>
+  <text x="100" y="546" font-size="12" font-weight="bold" fill="#2F855A">Form validation — Yup</text>
+  <text x="100" y="566" font-size="11" fill="#33475B">customerSchema (name, email, phone, status) · interaction form (type, notes, date) — run before submit</text>
+
+  <!-- json-server -->
+  <rect x="860" y="180" width="360" height="190" rx="10" fill="#E3ECF7" stroke="#1F4E79" stroke-width="1.5"/>
+  <text x="880" y="208" font-size="13" font-weight="bold" fill="#163A5C">Mock REST API — json-server :3001</text>
+  <text x="880" y="234" font-size="11" fill="#33475B">GET  /customers · /customers/:id</text>
+  <text x="880" y="252" font-size="11" fill="#33475B">POST /customers · PUT / DELETE /customers/:id</text>
+  <text x="880" y="270" font-size="11" fill="#33475B">GET  /interactions?customerId=…</text>
+  <text x="880" y="288" font-size="11" fill="#33475B">POST /interactions</text>
+  <text x="880" y="330" font-size="10.5" font-style="italic" fill="#6B7280">dev stand-in for a real backend (npm run server)</text>
+
+  <line x1="780" y1="275" x2="852" y2="275" stroke="#33475B" stroke-width="1.5" marker-start="url(#arrowStart)" marker-end="url(#arrow)"/>
+  <text x="816" y="262" font-size="10.5" fill="#33475B" text-anchor="middle">fetch()</text>
+  <text x="816" y="290" font-size="10.5" fill="#33475B" text-anchor="middle">JSON · REST</text>
+
+  <!-- db.json -->
+  <rect x="860" y="430" width="360" height="96" rx="10" fill="#FDF1DC" stroke="#B7791F" stroke-width="1.5"/>
+  <text x="880" y="456" font-size="13" font-weight="bold" fill="#8A5A12">File data store — data/db.json</text>
+  <text x="880" y="480" font-size="11" fill="#33475B">customers · interactions</text>
+  <text x="880" y="498" font-size="11" fill="#33475B">JSON persisted across restarts</text>
+  <line x1="1040" y1="370" x2="1040" y2="422" stroke="#33475B" stroke-width="1.5" marker-start="url(#arrowStart)" marker-end="url(#arrow)"/>
+  <text x="1052" y="402" font-size="10.5" fill="#33475B">read / write (--watch)</text>
+
+  <!-- Static data -->
+  <rect x="860" y="566" width="360" height="84" rx="10" fill="#F3EEFB" stroke="#6B46C1" stroke-width="1.5"/>
+  <text x="880" y="590" font-size="12.5" font-weight="bold" fill="#4C2E91">In-bundle static data</text>
+  <text x="880" y="612" font-size="11" fill="#33475B">src/data/users.js — mock logins (admin / user)</text>
+  <text x="880" y="630" font-size="11" fill="#33475B">data/products.js — mock catalog (generated script)</text>
+  <line x1="780" y1="606" x2="852" y2="606" stroke="#33475B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="816" y="598" font-size="10.5" fill="#33475B" text-anchor="middle">bundled import</text>
+
+  <!-- Build & Deploy strip -->
+  <rect x="60" y="680" width="1160" height="170" rx="10" fill="#FAFBFD" stroke="#C9D3DE" stroke-width="1.2"/>
+  <text x="84" y="706" font-size="13" font-weight="bold" fill="#475569">Build and Deploy</text>
+
+  <rect x="84" y="718" width="268" height="64" rx="8" fill="#FFFFFF" stroke="#8A99AB" stroke-width="1"/>
+  <text x="100" y="738" font-size="11.5" font-weight="600" fill="#1F2937">Source and config</text>
+  <text x="100" y="754" font-size="10.5" fill="#4B5563">src/ · index.html · VITE_API_BASE_URL via .env.*</text>
+  <text x="100" y="770" font-size="10.5" fill="#4B5563">(.env.development / .env.production)</text>
+
+  <rect x="388" y="718" width="196" height="64" rx="8" fill="#FFFFFF" stroke="#8A99AB" stroke-width="1"/>
+  <text x="404" y="738" font-size="11.5" font-weight="600" fill="#1F2937">Build — Vite</text>
+  <text x="404" y="754" font-size="10.5" fill="#4B5563">npm run build</text>
+  <text x="404" y="770" font-size="10.5" fill="#4B5563">code-split · CSS modules</text>
+
+  <rect x="620" y="718" width="168" height="64" rx="8" fill="#FFFFFF" stroke="#8A99AB" stroke-width="1"/>
+  <text x="636" y="738" font-size="11.5" font-weight="600" fill="#1F2937">dist/</text>
+  <text x="636" y="754" font-size="10.5" fill="#4B5563">static bundle</text>
+  <text x="636" y="770" font-size="10.5" fill="#4B5563">(build output)</text>
+
+  <rect x="824" y="718" width="280" height="64" rx="8" fill="#FFFFFF" stroke="#8A99AB" stroke-width="1"/>
+  <text x="840" y="738" font-size="11.5" font-weight="600" fill="#1F2937">Deploy — static host (Netlify)</text>
+  <text x="840" y="754" font-size="10.5" fill="#4B5563">_redirects → SPA fallback (/* /index.html 200)</text>
+  <text x="840" y="770" font-size="10.5" fill="#4B5563">serves the built SPA to browsers</text>
+
+  <line x1="352" y1="750" x2="380" y2="750" stroke="#33475B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="584" y1="750" x2="612" y2="750" stroke="#33475B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="788" y1="750" x2="816" y2="750" stroke="#33475B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="84" y="796" width="1020" height="36" rx="8" fill="#FFFFFF" stroke="#8A99AB" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="104" y="819" font-size="11" fill="#64748B">Dev loop — Vite dev server (HMR) · ESLint · Prettier · npm scripts: dev · server · build · preview</text>
+
+  <text x="1220" y="884" font-size="10" fill="#9CA3AF" text-anchor="end">NTU-AIE · ai-2.11 · simple-crm-web-soln</text>
+</svg>
